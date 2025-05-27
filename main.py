@@ -1,24 +1,27 @@
-# 1- Écrire  un programme Python  qui permet  d’afficher le message Bonjour.
+# 1- Écrire un programme Python qui permet d’afficher le message Bonjour.
 def afficher():
     print("Bonjour")
 
-# 2- Écrire  un programme Python permettant de saisir deux nombres et d'afficher leur produit.  
+
+# 2- Écrire un programme Python permettant de saisir deux nombres et d'afficher leur produit.
 def afficher_nombre():
     x = input("nombre 1 : ")
     y = input("nombre 2 : ")
-    print("resultat", x,"*", y, "=", int(x) * int(y))
+    print("resultat", x, "*", y, "=", int(x) * int(y))
 
-# 3- Écrire  un programme Python  qui  permet d'échanger le contenu de deux entiers  A et B  saisis par l'utilisateur. et afficher ces entiers  après l’échange.
+
+# 3- Écrire un programme Python qui permet d'échanger le contenu de deux entiers A et B saisis par l'utilisateur. Et afficher ces entiers après l’échange.
 def echanger_contenu():
-    A = input("Inserer le nombre A : ")
-    B = input("Inserer le nombre B : ")
-    print("Valeur avant echange, A :", A,"et B : ", B)
-    TEMP = A 
-    A = B 
-    B = TEMP 
-    print("Valeur après echange, A :", A,"et B : ", B)
+    a = input("Inserer le nombre A : ")
+    b = input("Inserer le nombre B : ")
+    print("Valeur avant echange, A :", a, "et B : ", b)
+    temp = a
+    a = b
+    b = temp
+    print("Valeur après echange, A :", a, "et B : ", b)
 
-# 4- Écrire un un programme Python qui  permet d'afficher si un nombre  entier saisi au  clavier est pair ou impair.
+
+# 4- Écrire un programme Python qui permet d'afficher si un nombre entier saisi au clavier est pair ou impair.
 def paire_impaire():
     nombre = input("Entrer le nombre : ")
     if int(nombre) % 2 == 0:
@@ -26,20 +29,22 @@ def paire_impaire():
     else:
         print("Le nombre", nombre, "est impair")
 
-# 5- Écrire un programme Python  qui permet d'afficher le plus grand de trois entiers saisis  au clavier. 
-def plus_grand():
-    x = input("nombre 1 : ")
-    y = input("nombre 2 : ")
-    z = input("nombre 3 : ")
-    if int(x) > int(y) and int(x) > int(z):
-        print(x, "est le plus grand nombre entre : ",x,y,z)
-    elif int(y) > int(z):
-        print(x, "est le plus grand nombre entre : ",x,y,z)
-    else:
-        print(z, "est le plus grand nombre entre : ",x,y,z)
 
-# 6- Écrire un programme Python  qui permet d'évaluer une note saisi au  clavier   
-#(si la note est supérieur à 10 alors il affiche validé sinon non validé  (NB : la note comprise entre 0 et 20 ). 
+# 5- Écrire un programme Python qui permet d'afficher le plus grand de trois entiers saisis au clavier.
+def plus_grand():
+    x = int(input("nombre 1 : "))
+    y = int(input("nombre 2 : "))
+    z = int(input("nombre 3 : "))
+    if x > y and x > z:
+        print(x, "est le plus grand nombre entre : ", x, y, z)
+    elif y > z:
+        print(x, "est le plus grand nombre entre : ", x, y, z)
+    else:
+        print(z, "est le plus grand nombre entre : ", x, y, z)
+
+
+# 6- Écrire un programme Python qui permet d'évaluer une note saisie au clavier
+# (si la note est supérieur à 10 alors, il affiche validé sinon non validé (NB : la note comprise entre 0 et 20).
 def afficher_valide():
     note = input("Entrer la note : ")
     if 0 <= int(note) <= 20:
@@ -51,28 +56,30 @@ def afficher_valide():
         print("la note doit être comprise entre 0 et 20")
         afficher_valide()
 
+
 # 7- Écrire un programme Python qui demande deux nombres m et n à l’utilisateur et l’informe ensuite si le produit de ces deux nombres est positif ou négatif.
 # On inclut dans le programme le cas où le produit peut être nul. 
 def produit_nombre():
-    n = input("nombre n : ")
-    m = input("nombre m : ")
-    produit = int(n) * int(m)
+    n = int(input("nombre n : "))
+    m = int(input("nombre m : "))
+    produit = n * m
     if produit > 0:
-        print("Le produit de ", n, "et",m, "est positif")
+        print("Le produit de ", n, "et", m, "est positif")
     elif produit == 0:
-        print("Le produit de ", n, "et",m, "est null")
+        print("Le produit de ", n, "et", m, "est null")
     else:
-        print("Le produit de ", n, "et",m, "est negatif")
+        print("Le produit de ", n, "et", m, "est negatif")
 
 
-# 8- Écrire un programme Python qui permet de calculer la valeur absolue d'un entier saisi  par l'utilisateur.
+# 8- Écrire un programme Python qui permet de calculer la valeur absolue d'un entier saisi par l'utilisateur.
 def valeur_absolut():
     val = int(input("Entrer le nombre : "))
-    if val < 0 :
+    if val < 0:
         absolu = -val
     else:
         absolu = val
     print(absolu)
+
 
 # 9- Écrire un programme Python qui permet de calculer la moyenne de trois entiers saisis par l'utilisateur.
 def moyenne():
@@ -83,13 +90,14 @@ def moyenne():
     moyen = somme // 3
     print(moyen)
 
+
 # 10- Une boutique propose à ces clients, une réduction de 15% pour les montants d’achat supérieurs à 200 dh.
-# Écrire un programme Python permettant de saisir le prix total HT et de calculer le  montant TTC en prenant en compte la réduction et la TVA=20%. *
+# Écrire un programme Python permettant de saisir le prix total HT et de calculer le montant TTC en prenant en compte la réduction et la TVA=20%. *
 def calcul_reduction_ttc():
     ht = float(input("Prix total HT : "))
     if ht > 200:
         ht = ht * 0.85
-    ttc = ht * 1.20 
+    ttc = ht * 1.20
     print("Montant TTC à payer :", round(ttc, 2))
 
 
