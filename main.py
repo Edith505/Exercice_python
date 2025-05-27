@@ -22,18 +22,18 @@ def echanger_contenu():
 def paire_impaire():
     nombre = input("Entrer le nombre : ")
     if int(nombre) % 2 == 0:
-        print("Le nombre", nombre, "est paire")
+        print("Le nombre", nombre, "est pair")
     else:
-        print("Le nombre", nombre, "est impaire")
+        print("Le nombre", nombre, "est impair")
 
 # 5- Écrire un programme Python  qui permet d'afficher le plus grand de trois entiers saisis  au clavier. 
 def plus_grand():
     x = input("nombre 1 : ")
     y = input("nombre 2 : ")
     z = input("nombre 3 : ")
-    if int(x) > int(y) & int(x) > int(z):
+    if int(x) > int(y) and int(x) > int(z):
         print(x, "est le plus grand nombre entre : ",x,y,z)
-    elif int(y) > int(x) & int(y) > int(z):
+    elif int(y) > int(z):
         print(x, "est le plus grand nombre entre : ",x,y,z)
     else:
         print(z, "est le plus grand nombre entre : ",x,y,z)
@@ -82,7 +82,16 @@ def moyenne():
     somme = val_1 + val_2 + val_3
     moyen = somme // 3
     print(moyen)
-    
+
+# 10- Une boutique propose à ces clients, une réduction de 15% pour les montants d’achat supérieurs à 200 dh.
+# Écrire un programme Python permettant de saisir le prix total HT et de calculer le  montant TTC en prenant en compte la réduction et la TVA=20%. *
+def calcul_reduction_ttc():
+    ht = float(input("Prix total HT : "))
+    if ht > 200:
+        ht = ht * 0.85
+    ttc = ht * 1.20 
+    print("Montant TTC à payer :", round(ttc, 2))
+
+
 """Execution des codes"""
 print("---------------/ Excecution des code /----------------")
-moyenne()
