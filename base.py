@@ -1,6 +1,5 @@
 import math
 
-
 # Exercice 1 : Programme qui demande le nom et l'âge et l'afficher
 def demande_nom_age():
     nom = input("Entrer votre nom : ")
@@ -195,5 +194,129 @@ def affiche_moyen():
     print("Mention =", mention)
 
 
+# Exercice 17 : Programme qui afficher les élements impaire et paire d'une liste
+def liste_paire_impaire():
+    liste_original = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    liste_impaire = []
+    liste_paire = []
+
+    for i in liste_original:
+        if i % 2 == 0:
+            liste_paire.append(i)
+        else:
+            liste_impaire.append(i)
+    print(liste_paire)
+    print(liste_impaire)
+
+
+# Exercice 18 : Programme qui calcule les solutions d'une équation du second degré
+def equation_seconde_degre():
+    try:
+        a = int(input("Entrer la valeur de a : "))
+        b = int(input("Entrer la valeur de b : "))
+        c = int(input("Entrer la valeur de c : "))
+
+        if a == 0:
+            print("Ce n'est pas une équation du second degré (a ≠ 0).")
+            return
+
+        print(f"\nL'équation est : {a}x² + {b}x + {c} = 0")
+
+        delta = b ** 2 - 4 * a * c
+        print(f"Alors, Δ = {delta}")
+
+        if delta < 0:
+            print("Aucune solution réelle (Δ < 0).")
+        elif delta == 0:
+            x = -b / (2 * a)
+            print(f"(Δ = 0), Donc : x = {x}")
+        else:
+            x1 = (-b - math.sqrt(delta)) / (2 * a)
+            x2 = (-b + math.sqrt(delta)) / (2 * a)
+            print(f"(Δ > 0), Donc : x₁ = {x1}, x₂ = {x2}")
+    except ValueError:
+        print("Veuillez entrer uniquement des nombres valides.")
+
+
+# Exercice 19 : Programme qui affiche si une personne est imposable ou pas
+def impot():
+    """
+    Les hommes de plus de 20 ans paient l'impôt
+    Les femmes paient l'impôt si elles ont entre 18 et 35 ans
+    Les autres ne paient pas d'impôt.
+    """
+    try:
+        age = int(input("Entrer la valeur de age : "))
+        sex = input("Entrer le sex : (m) si homme - (f) si une femme : ").lower()
+
+        if (age > 20 and sex == "m") or (18 < age < 35 and sex == "f"):
+            print("Imposable")
+        else:
+            print("Ne pas Imposable")
+
+    except ValueError:
+        print("Veuillez entrer un age valide")
+
+
+# Exercice 20 : Programme qui calcule le prix TTC d'un produit connaissant son prix hors taxe et sa categorie
+def prix_ttc():
+    try:
+        pth = int(input("Entrer la valeur de pth : "))
+        categorie = (input("Entrer la valeur de categor (A, B ou C) : ")).upper()
+        if categorie not in ("A", "B", "C"):
+            print("Veuillez entrer un categor valide")
+            return
+
+        if categorie == "A":
+            pttc = pth + pth * 0.07
+        elif categorie == "B":
+            pttc = pth + pth * 0.2
+        else:
+            pttc = pth + pth * 0.25
+
+        print("La PTTC de ce produit est : ", format(pttc, ".2f"))
+    except ValueError:
+        print("Veuillez entrer un categor valide")
+
+
+# Exercice 21 : mini-Calculatrice
+def calculator():
+    try:
+        nombre_1 = int(input("Entrer la valeur de nombre 1: "))
+        nombre_2 = int(input("Entrer la valeur de nombre 2: "))
+        operator = input("Choisisser un operateur (+ , - , * , / , // ou % ) : ").strip()
+
+        if operator not in ("+", "-", "*", "/", "//", "%"):
+            print("Veuillez entrer un operateur valide")
+            return
+
+        if operator == "+":
+            solution = nombre_1 + nombre_2
+        elif operator == "-":
+            solution = nombre_1 - nombre_2
+        elif operator == "*":
+            solution = nombre_1 * nombre_2
+        elif operator == "/":
+            if nombre_2 == 0:
+                print("Division par zéro impossible.")
+                return
+            solution = nombre_1 / nombre_2
+        elif operator == "//":
+            if nombre_2 == 0:
+                print("Division par zéro impossible.")
+                return
+            solution = nombre_1 // nombre_2
+        else:
+            if nombre_2 == 0:
+                print("Modulo par zéro impossible.")
+                return
+            solution = nombre_1 % nombre_2
+
+        print(f"La solution de {nombre_1} {operator} {nombre_2} = {solution}")
+
+    except ValueError:
+        print("Erreur : Nombre invalide")
+
+
 # -------------------/ Application /----------------
-affiche_moyen()
+calculator()
