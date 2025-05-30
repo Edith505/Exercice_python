@@ -100,6 +100,87 @@ def calcul_reduction_ttc():
     ttc = ht * 1.20
     print("Montant TTC à payer :", round(ttc, 2))
 
+# 11- Écrire un programme Python qui permet d'afficher le message "Bonsoir" 10 fois. Utilisant la boucle while.
+def afficher_boucle():
+    i = 1
+    while i <= 10:
+        print("Bonjour", i, "fois")
+        i += 1
+
+
+# 12 - Écrire un programme Python permettant de calculer la somme S= 1+2+3+... + 10. Utilisant la boucle while.
+def calcule_somme():
+    s = 0
+    i = 1
+
+    while i <= 10:
+        s += i
+        if i < 10:
+            print(i, end=" + ")
+        else:
+            print(i, end=" = ")
+        i += 1
+    print(s)
+
+
+# 13 - Écrire un programme Python permettant de calculer la somme S=1+2+3+... + N, où N saisi par l’utilisateur. Utilisant la boucle while.
+def calcule_somme_n():
+    n = int(input("Entrer le nombre de somme : "))
+    s = 0
+    i = 1
+    print("S(", n, ") : ", end="")
+    while i <= n:
+        s += i
+        if i < n:
+            print(i, end=" + ")
+        else:
+            print(i, end=" = ")
+        i += 1
+    print(s)
+
+
+#  14 - Écrire un programme Python qui permet d'afficher le message "bonjour" 10 fois. Utilisant la boucle for.
+def afficher_bonjour_for():
+    for i in range(1, 11):
+        print("Bonjour", i, "fois")
+
+
+# 15 - Écrire un programme Python qui permet de calculer la somme S=1+2+3+4+….+ N. où N saisi au clavier par l'utilisateur. Utilisant la boucle for.
+def calcule_somme_n2():
+    n = int(input("Entrer le nombre : "))
+    s = 0
+    print("S(", n, ") : ", end="")
+    for i in range(1, n + 1):
+        s += i
+        if i < n:
+            print(i, end=" + ")
+        else:
+            print(i, end=" = ")
+        i += 1
+    print(s)
+
+
+# 16 - Écrire un programme Python qui permet d'afficher la table de multiplication de 5. Utilisant la boucle For.
+def table_multiplication():
+    table = int(input("Entrer la table multiplication : "))
+    n = int(input("Entrer le nombre de table : "))
+    for i in range(n + 1):
+        print(i, "x", table, "=", i * table)
+
+
+# 17 - Écrivez un programme Python, entrez deux nombres de l'utilisateur et trouvez le plus grand diviseur commun en utilisant la boucle for.
+def plus_grand_diviseur():
+    a = int(input("Entrez le premier nombre : "))
+    b = int(input("Entrez le deuxième nombre : "))
+
+    min_ab = min(a, b)
+    pgcd = 1
+
+    for i in range(1, min_ab + 1):
+        if a % i == 0 and b % i == 0:
+            pgcd = i
+    print("Le plus grand diviseur commun est :", pgcd)
+
 
 """Execution des codes"""
 print("---------------/ Excecution des code /----------------")

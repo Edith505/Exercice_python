@@ -1,5 +1,6 @@
 import math
 
+
 # Exercice 1 : Programme qui demande le nom et l'âge et l'afficher
 def demande_nom_age():
     nom = input("Entrer votre nom : ")
@@ -35,7 +36,7 @@ def operation(x, y):
     division = 0
     try:
         division = x / y
-    except:
+    except ValueError:
         print("erreur, on ne peut pas diviser par 0")
     finally:
         print("somme =", somme, ",produit =", produit, ",soustraction =", soustraction, ",division =",
@@ -121,85 +122,78 @@ def changer_contenu(x, y):
     print("Après X :", x, "et Y :", y)
 
 
-# Exercice 14 : Écrire un programme Python qui permet d'afficher le message "Bonsoir" 10 fois. Utilisant la boucle while.
-def afficher_boucle():
-    i = 1
-    while i <= 10:
-        print("Bonjour", i, "fois")
-        i += 1
-
-
-# Exercice 15 : Écrire un programme Python permettant de calculer la somme S= 1+2+3+... + 10. Utilisant la boucle while.
-def calcule_somme():
-    s = 0
-    i = 1
-
-    while i <= 10:
-        s += i
-        if i < 10:
-            print(i, end=" + ")
+# Exercice 14 : nombre de photocopies et le prix : 0.30 centime les 10 premiers, 0.25 les 20 suivants et 0.20 au-delà
+def prix_photocopie():
+    while True:
+        nombre_photocopie = int(input("Entrer le nombre de photocopies : "))
+        if nombre_photocopie <= 0:
+            print("Le nombre de photocopies doit être supérieur à 0.")
         else:
-            print(i, end=" = ")
-        i += 1
-    print(s)
+            break
+
+    if nombre_photocopie <= 10:
+        prix_final = nombre_photocopie * 0.30
+    elif nombre_photocopie <= 30:
+        prix_final = (10 * 0.30) + ((nombre_photocopie - 10) * 0.25)
+    else:
+        prix_final = (10 * 0.30) + (20 * 0.25) + ((nombre_photocopie - 30) * 0.20)
+
+    print("Le prix total de photocopies = ", format(prix_final, ".2f"))
 
 
-# Exercice 16 : Écrire un programme Python permettant de calculer la somme S=1+2+3+... + N, où N saisi par l’utilisateur. Utilisant la boucle while.
-def calcule_somme_n():
-    n = int(input("Entrer le nombre de somme : "))
-    s = 0
-    i = 1
-    print("S(", n, ") : ", end="")
-    while i <= n:
-        s += i
-        if i < n:
-            print(i, end=" + ")
+# Exercice 15 : Programme qui demande age d'un enfant et affiche le categorie
+def demande_age():
+    while True:
+        age = int(input("Entrer votre age : "))
+        if age < 6 or age > 16:
+            print("L'age doit être comprie entre a 0 et 16")
         else:
-            print(i, end=" = ")
-        i += 1
-    print(s)
+            break
 
-# Exercice 17 : Écrire un programme Python qui permet d'afficher le message "bonjour" 10 fois. Utilisant la boucle for.
-def afficher_bonjour_for():
-    for i in range(1, 11):
-        print("Bonjour", i, "fois")
+    if age < 8:
+        categorie = "Poussins"
+    elif age < 10:
+        categorie = "Pupille"
+    elif age < 12:
+        categorie = "Minime"
+    else:
+        categorie = "Cadete"
+    print("votre categorie est", categorie)
 
 
-# Exercice 18 : Écrire un programme Python qui permet de calculer la somme S=1+2+3+4+….+ N. où N saisi au clavier par l'utilisateur. Utilisant la boucle for.
-def calcule_somme_n2():
-    n = int(input("Entrer le nombre : "))
-    s = 0
-    print("S(", n, ") : ", end="")
-    for i in range(1, n + 1):
-        s += i
-        if i < n:
-            print(i, end=" + ")
-        else:
-            print(i, end=" = ")
-        i += 1
-    print(s)
+# Exercice 16 : Programme qui affiche la moyenne et la mention des notes (5 notes)
+def affiche_moyen():
+    tableau_note = []
 
-# Exercice 19 : Écrire un programme Python qui permet d'afficher la table de multiplication de 5. Utilisant la boucle For.
-def table_multiplication():
-    table = int(input("Entrer la table multiplication : "))
-    n = int(input("Entrer le nombre de table : "))
-    for i in range(n + 1):
-        print(i, "x", table, "=", i * table)
+    while len(tableau_note) < 5:
+        try:
+            note = int(input(f"Entrez la note {len(tableau_note) + 1} : "))
+            if 0 <= note <= 20:
+                tableau_note.append(note)
+            else:
+                print("La note doit être entre 0 et 20.")
+        except ValueError:
+            print("Veuillez entrer un nombre entier valide.")
 
-# Exercice 20 : Écrivez un programme Python, entrez deux nombres de l'utilisateur et trouvez le plus grand diviseur commun en utilisant la boucle for.
-def plus_grand_diviseur():
-    a = int(input("Entrez le premier nombre : "))
-    b = int(input("Entrez le deuxième nombre : "))
+    moyen = sum(tableau_note) / len(tableau_note)
 
-    min_ab = min(a, b)
-    pgcd = 1
+    print("Moyenne =", format(moyen, ".2f"))
 
-    for i in range(1, min_ab + 1):
-        if a % i == 0 and b % i == 0:
-            pgcd = i
+    if moyen < 10:
+        mention = "Insuffisant"
+    elif moyen == 10:
+        mention = "Juste"
+    elif moyen < 12:
+        mention = "Passable"
+    elif moyen < 14:
+        mention = "Assez bien"
+    elif moyen < 17:
+        mention = "Bien"
+    else:
+        mention = "Très bien"
 
-    print("Le plus grand diviseur commun est :", pgcd)
+    print("Mention =", mention)
 
 
 # -------------------/ Application /----------------
-plus_grand_diviseur()
+affiche_moyen()
