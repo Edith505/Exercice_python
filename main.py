@@ -100,6 +100,7 @@ def calcul_reduction_ttc():
     ttc = ht * 1.20
     print("Montant TTC à payer :", round(ttc, 2))
 
+
 # 11- Écrire un programme Python qui permet d'afficher le message "Bonsoir" 10 fois. Utilisant la boucle while.
 def afficher_boucle():
     i = 1
@@ -182,5 +183,46 @@ def plus_grand_diviseur():
     print("Le plus grand diviseur commun est :", pgcd)
 
 
+# 18 - Programe qui sert a convertir des degrers Celsius en degrés frhrenheit
+def conversion():
+    try:
+        degrer_celsieus = int(input("Entrer un nombre : "))
+        degrer_fahrence = int(degrer_celsieus * (9 / 5) + 32)
+        print(f"{degrer_celsieus} c = {degrer_fahrence} f")
+    except ValueError:
+        print("Données en entrées non-conrrectes")
+
+
+# 19 - programme qui retourne la chaine de caractères passée en argument à l'envers
+def reverse(texte):
+    print(texte[::-1])
+
+
+# 20 - programme qui retourne le nombre de voyelles dans une chaine de caracteres
+def get_value_is_number(text):
+    voyelle = ['a', 'e', 'i', 'o', 'u']
+    count = 0
+    for char in text.lower():
+        if char in voyelle:
+            count += 1
+    print(f"le nombre de voyelle est : {count}")
+
+
+# 21 - programme qui retourne l'abreviation d'un nom et prénom : ex John Doe = John D.
+def abreviation(texte):
+    liste = texte.split()
+    print(f"{liste[0]} {liste[1][0].upper()}.")
+
+
+# 22 - Programme qui retourne chaque chiffre que contient le nombre passé en argurment au carré et concaténez-les. Puis retournez le nombre concatené final
+def square_digits(num):
+    result = ""
+    number = str(num)
+    for i in number:
+        result += str((int(i) ** 2))
+    print(result)
+
 """Execution des codes"""
 print("---------------/ Excecution des code /----------------")
+
+square_digits(5225)
