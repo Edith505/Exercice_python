@@ -1,5 +1,6 @@
 import math
 
+
 # Exercice 1 : Programme qui demande le nom et l'âge et l'afficher
 def demande_nom_age():
     nom = input("Entrer votre nom : ")
@@ -318,5 +319,143 @@ def calculator():
         print("Erreur : Nombre invalide")
 
 
+# Exercice 21 : Programme qui demande à l'utilisateur de saisir un nombre affiche quelque chose en fonction du nombre saisi
+def affiche_nombre():
+    nbr = int(input("Entrer la valeur de nombre (6, 4, 2, 8): "))
+    if nbr == 6:
+        print("le personnage va à droite")
+    elif nbr == 4:
+        print("le personnage va à gauche")
+    elif nbr == 8:
+        print("le personnage va en haut")
+    elif nbr == 2:
+        print("le personnage va en bas")
+    else:
+        print("erreur de saisie, le personnage ne bouge pas")
+
+
+# Exercice 22 : Programme qui verifie si un nombre est pair ou impair
+def pair_impair():
+    nbr = int(input("Entrer le nombre : "))
+    if nbr % 2 == 0:
+        print(f"le nombre {nbr} est paire")
+    else:
+        print(f"le nombre {nbr} est impaire")
+
+
+# Exercice 23 : Programme qui vérifie si une année est bissextile ou non
+def annee_bissextile():
+    try:
+        annee = int(input("Entrer la valeur de annee: "))
+        if not (0 <= annee <= 2025):
+            print("Veuillez entrer un annee entre 0 et 2025")
+            return
+
+        if (annee % 4 == 0 and annee % 100 != 0) or (annee % 400 == 0):
+            print(f"Le annee {annee} est bisextile")
+        else:
+            print(f"{annee} n'est pas bisextile")
+
+    except ValueError:
+        print("erreur de saisie")
+
+
+# Exercice 24 : Programme qui retourne le type d'un caractère
+def type_caractere():
+    caractere = input("Entrer une caractere : ")
+    if 'a' <= caractere <= 'z' or 'A' <= caractere <= 'Z':
+        print(f"{caractere} est un alphabet")
+    elif '0' <= caractere <= '9':
+        print(f"{caractere} est un nombre")
+    else:
+        print(f"{caractere} est un caractère spécial")
+
+
+# Exercice 25 : Programme qui affiche les dix nombres suivants d'un nombre demande
+def dix_nombre_suivant():
+    initial = int(input("Entrer la valeur de initial: "))
+    for i in range(initial + 1, initial + 11):
+        print(i)
+
+
+# Exercice 26 : Programme qui calcule et affiche la somme de 1/n
+def somme_fraction():
+    try:
+        n = int(input("Entrer la valeur de initial: "))
+        s = 0
+        for i in range(1, n + 1):
+            s += (1 / i)
+        print(format(s, ".2f"))
+
+    except ValueError:
+        print("Veuillez entrer un nombre valide")
+        somme_fraction()
+
+
+# Exercice 27 : Programme qui calcule et affiche la somme S = 1 + 10 + 100+...+ 10^n
+def somme_puissance():
+    try:
+        p = int(input("Entrer la puissance: "))
+        s = 0
+        for i in range(p + 1):
+            s += (10 ** i)
+        print(format(s))
+
+    except ValueError:
+        print("Veuillez entrer un nombre valide")
+        somme_fraction()
+
+
+# Exerice 28 : Programme qui demande un nombre positi no nul de départ, et qui calcule sa factorielle
+def factorielle():
+    try:
+        n = int(input("Entrer la valeur de n : "))
+        if n < 0:
+            print("Veuillez entrer un nombre positif")
+            return
+
+        else:
+            f = 1
+            for i in range(2, n + 1):
+                f *= i
+        print(f)
+    except ValueError:
+        print("Veuillez entrer un nombre valide")
+
+
+# Exercice 29 : Programme qui calcule la somme des carrées des n premiers entiers impairs
+def calcul_somme_premier():
+    try:
+        n = int(input("Entrer la valeur de n : "))
+        if n < 0:
+            print("Veuillez entrer un nombre positif")
+            return
+
+        s = 0
+        for i in range(n):
+            impaire = 2 * i + 1
+            s += impaire ** 2
+        print(s)
+
+    except ValueError:
+        print("Veuillez entrer un nombre valide")
+
+
+# Exercice 30 : Programme qui affichie les diviseurs d'un entier positif n non nul
+def afficher_diviseurs():
+    try:
+        n = int(input("Entrer un entier positif non nul : "))
+        if n <= 0:
+            print("Veuillez entrer un entier positif non nul.")
+            return
+
+        print(f"Les diviseurs de {n} sont :")
+        for i in range(1, n + 1):
+            if n % i == 0:
+                print(i, end=" ")
+
+    except ValueError:
+        print("Erreur : veuillez entrer un entier valide.")
+
 # -------------------/ Application /----------------
-calculator()
+afficher_diviseurs()
